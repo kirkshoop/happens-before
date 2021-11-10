@@ -4,6 +4,10 @@
 #include <spdlog/spdlog.h>
 #include <docopt/docopt.h>
 
+#include <thread>
+extern std::thread gstartup;
+extern std::thread gstarting;
+
 static constexpr auto USAGE =
   R"(Naval Fate.
 
@@ -38,4 +42,7 @@ int main(int argc, const char **argv)
   spdlog::info("Hello, {}!", "World");
 
   fmt::print("Hello, from {}\n", "{fmt}");
+
+  gstartup.join();
+  gstarting.join();
 }

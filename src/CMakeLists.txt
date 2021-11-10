@@ -46,7 +46,7 @@ find_package(spdlog)
 find_package(docopt)
 
 # Generic test that uses conan libs
-add_executable(intro main.cpp)
+add_executable(intro main.cpp 1mutex.cpp 0thread.cpp)
 target_link_libraries(
   intro
   PRIVATE project_options
